@@ -1,6 +1,10 @@
 # Etapa de construcción
 FROM node:18-alpine3.17 as build
 
+ARG VITE_API_URL
+
+ENV VITE_API_URL=$VITE_API_URL
+
 WORKDIR /app
 COPY . /app
 

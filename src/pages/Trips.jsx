@@ -1,5 +1,5 @@
-import { useState } from 'react';
-
+import { useState, useContext } from 'react';
+import { DataContext } from '../Context';
 import Sidebar from '../partials/Sidebar';
 import Header from '../partials/Header';
 
@@ -10,7 +10,8 @@ import DeleteButton from '../partials/actions/DeleteButton';
 import TripsTable from '../partials/trips/TripsTable';
 
 function Trips() {
-
+  
+  const { data, setData } = useContext(DataContext)
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedItems, setSelectedItems] = useState([]);
 
@@ -44,23 +45,22 @@ function Trips() {
               {/* Right: Actions */}
               <div className="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
                 {/* Delete button */}
-                <DeleteButton selectedItems={selectedItems} />
+                {/* <DeleteButton selectedItems={selectedItems} /> */}
                 {/* Dropdown */}
-                <DateSelect />
+                {/* <DateSelect /> */}
                 {/* Filter button */}
-                <FilterButton align="right" />
+                {/* <FilterButton align="right" /> */}
                 
               </div>
 
             </div>
 
-            {/* Table */}
-            <TripsTable selectedItems={handleSelectedItems} />
-
             {/* Pagination */}
-            <div className="mt-8">
+            { data?.data && <div className="my-4">
               <PaginationClassic />
-            </div>
+            </div>}
+            {/* Table */}
+            <TripsTable selectedItems={handleSelectedItems} className="mb-8"/>
 
           </div>
         </main>

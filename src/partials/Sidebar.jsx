@@ -154,7 +154,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
               </li>
             
              {/* By Neighborhood */}
-             <li
+             {/* <li
                 className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${
                   ( pathname.includes("by-neighborhood") )&& "bg-slate-900"
                 }`}
@@ -189,7 +189,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                    
                   </div>
                 </NavLink>
-              </li>
+              </li> */}
             
             </ul>
           </div>
